@@ -1,0 +1,55 @@
+Users:
+    Create:
+        /users/
+            Include values
+    Read:
+        /users/
+            Get all the users
+        /users/#USERID
+            Gets the user with #USERID
+
+    Update:
+        /users/#USERID
+            Updates the user with #USERID with supplied values 
+
+    Delete:
+        /users/#USERID
+            Deletes the specified user
+
+Stories:
+    Create:
+        /stories/
+            Include values
+    Read:
+        /stories/
+            Get all the stories
+        /stories/#STORYID
+            Gets the story with #STORYID
+
+    Update:
+        /stories/#STORYID
+            Updates the story with #STORYID with supplied values 
+
+    Delete:
+        /stories/#STORYID
+            Deletes the specified story
+
+Comments:
+    Create:
+        /comments/
+            Include values
+    Read:
+        /comments/
+            Get all the comments
+        /comments/#COMMENTID
+            Gets the comment with #COMMENTID
+
+    Update:
+        /comments/#COMMENTID
+            Updates the comment with #COMMENTID with supplied values 
+
+    Delete:
+        /comments/#COMMENTID
+            Deletes the specified comment
+
+
