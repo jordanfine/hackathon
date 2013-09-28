@@ -1,38 +1,25 @@
 angular.module('rant_that',[
+    'restangular'
 	'rant_that.services'
 	'rant_that.directives'
 	'rant_that.controllers'
 ])
 
-.config(['$routeProvider', ($routeProvider) ->
-	$routeProvider
-		.when '/',
-			templateUrl: 'index'
-			controller: 'IndexCtrl'
+.config(['$routeProvider', 'RestangularProvider', ($routeProvider, RestangularProvider) ->
+    console.log 'hi'
+    RestangularProvider.setBaseUrl 'ticknardif.pagekite.me/api'
+    $routeProvider
+        .when '/',
+            templateUrl: 'index'
+            controller: 'IndexCtrl'
 
-		.when '/***',
-			templateUrl: 'index'
-			controller: 'IndexCtrl'
+        .when '/***',
+            templateUrl: 'index'
+            controller: 'IndexCtrl'
 ])
 
-.run(['$rootScope', ($rootScope) ->
-	$rootScope.stories = [
-		{
-			name: "jordan"
-			story: "omg omg omg omg"
-		},
-		{
-			name: "jordan"
-			story: "omg omg omg omg"
-		},
-		{
-			name: "jordan"
-			story: "omg omg omg omg"
-		},
-		{
-			name: "jordan"
-			story: "omg omg omg omg"
-		}]
-
-		
+.run(['$rootScope', 'Restangular', ($rootScope, Restangular) ->
+    baseStories = Restangular.all('stories')
+    $rootScope.allStories = baseStories.getList()
+    console.log $rootScope.allStories
 ])

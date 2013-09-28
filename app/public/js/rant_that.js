@@ -77,7 +77,7 @@
   ]);
 
   angular.module('rant_that', ['rant_that.services', 'rant_that.directives', 'rant_that.controllers']).config([
-    '$routeProvider', function($routeProvider) {
+    '$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
       return $routeProvider.when('/', {
         templateUrl: 'index',
         controller: 'IndexCtrl'
@@ -87,7 +87,7 @@
       });
     }
   ]).run([
-    '$rootScope', function($rootScope) {
+    '$rootScope', 'Restangular', function($rootScope, Restangular) {
       return $rootScope.stories = [
         {
           name: "jordan",

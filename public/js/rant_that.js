@@ -76,8 +76,10 @@
     }
   ]);
 
-  angular.module('rant_that', ['rant_that.services', 'rant_that.directives', 'rant_that.controllers']).config([
-    '$routeProvider', function($routeProvider) {
+  angular.module('rant_that', ['restangular', 'rant_that.services', 'rant_that.directives', 'rant_that.controllers']).config([
+    '$routeProvider', 'RestangularProvider', function($routeProvider, RestangularProvider) {
+      console.log('hi');
+      RestangularProvider.setBaseUrl('ticknardif.pagekite.me/api');
       return $routeProvider.when('/', {
         templateUrl: 'index',
         controller: 'IndexCtrl'
@@ -87,22 +89,11 @@
       });
     }
   ]).run([
-    '$rootScope', function($rootScope) {
-      return $rootScope.stories = [
-        {
-          name: "jordan",
-          story: "omg omg omg omg"
-        }, {
-          name: "jordan",
-          story: "omg omg omg omg"
-        }, {
-          name: "jordan",
-          story: "omg omg omg omg"
-        }, {
-          name: "jordan",
-          story: "omg omg omg omg"
-        }
-      ];
+    '$rootScope', 'Restangular', function($rootScope, Restangular) {
+      var baseStories;
+      baseStories = Restangular.all('stories');
+      $rootScope.allStories = baseStories.getList();
+      return console.log($rootScope.allStories);
     }
   ]);
 
