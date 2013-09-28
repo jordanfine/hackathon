@@ -1,0 +1,24 @@
+!!! 5
+html(ng-app="rant_that", ng-controller="UserCtrl")
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        title(ng-bind="title") Rant That
+
+        meta(name='description', content='')
+        meta(name='viewport', content='width=device-width')
+        script(type='text/javascript',src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+        script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false")
+        link(rel='stylesheet', href='./public/css/rantthat.min.css')
+
+ 
+    body
+        .l-header
+            .l-header__inner
+                a(href="#").header--logo
+                .header--links
+                    a(href="#") Yo
+        div(ng-view)
+
+    script(type="text/javascript", src="./public/js/vendor.min.js")
+    script(type="text/javascript", src="./public/js/rant_that.js")
