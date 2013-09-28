@@ -19,6 +19,11 @@ html(ng-app="rant_that", ng-controller="IndexCtrl")
                 .header--links
                     a(href="#") Jordan Fine
         .l-map(rt-map, geo="geo")
+        .l-main
+            .l-sidebar lol
+            .l-feed
+                .l-post(rt-post) omg
+                .l-storyline(rt-feed, stories="stories") omg
 
         div(ng-view)
 

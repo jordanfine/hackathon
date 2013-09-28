@@ -16,5 +16,23 @@ angular.module('rant_that',[
 ])
 
 .run(['$rootScope', ($rootScope) ->
-	console.log "app.coffee run"
+	$rootScope.stories = [
+		{
+			name: "jordan"
+			story: "omg omg omg omg"
+		},
+		{
+			name: "jordan"
+			story: "omg omg omg omg"
+		},
+		{
+			name: "jordan"
+			story: "omg omg omg omg"
+		},
+		{
+			name: "jordan"
+			story: "omg omg omg omg"
+		}]
+
+		
 ])

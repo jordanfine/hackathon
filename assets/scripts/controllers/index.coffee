@@ -6,4 +6,10 @@ angular.module('rant_that.controllers', [])
 
 	($scope, $rootScope) ->
 		console.log "index ctrl"
+		$scope.stories = $rootScope.stories
+
+		$scope.$watch "stories", (old, newer)->
+			$scope.stories = newer
+
+			
 ])

@@ -3,7 +3,11 @@
 
   angular.module('rant_that.controllers', []).controller('IndexCtrl', [
     '$scope', '$rootScope', function($scope, $rootScope) {
-      return console.log("index ctrl");
+      console.log("index ctrl");
+      $scope.stories = $rootScope.stories;
+      return $scope.$watch("stories", function(old, newer) {
+        return $scope.stories = newer;
+      });
     }
   ]);
 
@@ -39,6 +43,39 @@
     }
   ]);
 
+  angular.module('rant_that.directives').directive('rtPost', [
+    function() {
+      return {
+        template: "<form id=\"post-story\">\n	<div class=\"post\">\n		<input name=\"subject\" type=\"text\" placeholder=\"Subject Line...\"/>\n		<textarea placeholder=\"Enter message here...\"></textarea>\n		<div class=\"post-options\">\n			<i class=\"icon-compass\"></i><i class=\"icon-image\"></i>\n		</div>\n	</div>\n</form>",
+        restrict: "A",
+        link: function(scope, element, attrs, ctrl) {
+          var post;
+          return post = function() {
+            return console.log("post story");
+          };
+        }
+      };
+    }
+  ]);
+
+  angular.module('rant_that.directives').directive('rtFeed', [
+    function() {
+      return {
+        template: "<ul>\n	<li ng-repeat=\"story in stories\">\n		{{story.name}} - {{story.story}}\n	</li>\n\n</ul>",
+        scope: {
+          stories: "=stories"
+        },
+        restrict: "A",
+        link: function(scope, element, attrs, ctrl) {
+          var post;
+          return post = function() {
+            return console.log("post story");
+          };
+        }
+      };
+    }
+  ]);
+
   angular.module('rant_that', ['rant_that.services', 'rant_that.directives', 'rant_that.controllers']).config([
     '$routeProvider', function($routeProvider) {
       return $routeProvider.when('/', {
@@ -51,7 +88,21 @@
     }
   ]).run([
     '$rootScope', function($rootScope) {
-      return console.log("app.coffee run");
+      return $rootScope.stories = [
+        {
+          name: "jordan",
+          story: "omg omg omg omg"
+        }, {
+          name: "jordan",
+          story: "omg omg omg omg"
+        }, {
+          name: "jordan",
+          story: "omg omg omg omg"
+        }, {
+          name: "jordan",
+          story: "omg omg omg omg"
+        }
+      ];
     }
   ]);
 
