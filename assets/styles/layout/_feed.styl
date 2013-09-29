@@ -1,2 +1,81 @@
 .l-feed
 	column(8)
+	overflow: auto
+
+	ul
+		@extends .clearfix
+		list-style: none
+		margin: 0
+		padding: 0
+
+		li
+			@extends .clearfix
+			border-top: 1px solid lighten($gray,25%)
+			padding: 20px 0
+
+			&:first-child
+				border-top: none
+
+			.user_pic
+				column(1)
+
+				img
+					width: 50px
+
+			.feed_post
+				column(6)
+		li.hashtag
+			border: none
+			float: left
+			margin-right: 15px
+			margin-top: 5px
+			font-size: 12px
+			color: $white
+			font-weight: 500
+			background: lighten($blue,25%)
+			padding: 4px 6px
+			border-radius: 3px
+			transition: background 0.3s linear
+
+			&:hover
+				background: $blue
+
+
+
+.feed_post-subject
+	h2
+		font-size: 18px
+		font-weight: 500
+		margin: 0
+		float: left
+	span.timestamp
+		font-size: 14px
+		font-style: italic
+
+	padding-bottom: 15px
+
+.feed_post-story
+	font-size: 12px
+	line-height: 1.2
+
+.feed_post-icons 
+	text-align: right
+.feed_post-icons i 
+	color $gray
+	opacity: 0.5
+	padding: 0 10px
+	transition: opacity 0.3s linear
+	&:hover
+		opacity: 1
+
+::-webkit-scrollbar 
+	width: 5px
+
+::-webkit-scrollbar-track 
+	background-color: none
+
+::-webkit-scrollbar-thumb 
+	background-color: none
+	opacity: 0
+	border-radius: 5px
+

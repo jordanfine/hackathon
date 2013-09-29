@@ -1,0 +1,57 @@
+button-style($base-color, $font-color, $border-color)
+  color: $font-color
+  background: lighten($base-color, 10%)
+  border: 1px solid $border-color
+
+  &:hover, &:focus, &:active, &.active, &.disabled
+    background-color: $base-color
+
+  &:hover, &:focus
+    text-decoration: none
+    background: $base-color
+    //box-shadow: inset 0 1px 0 rgba(#FFF, 0.3), 0 2px 2px rgba(#000, 0.25)
+    //background: linear-gradient(top, $base-color 50%, darken($base-color, 5%) 50%)
+  
+  // Clicked
+  &:active
+   //box-shadow: inset 0 1px 0 rgba(#000, 0.05), 0 2px 2px rgba(#000, 0.25)
+  &:disabled, &.disabled
+    opacity: 0.5
+
+.btn
+  display: inline-block
+  //ie7-inline-block()
+  box-sizing: border-box
+  padding: 4px 0
+  margin-bottom: 0
+  font-size: $base-button-font-size
+  font-weight: 500
+  width: 96px
+  line-height: ($base-line-height + 1)
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  text-transform: uppercase
+  border: none
+  border-radius: $base-border-radius
+  //box-shadow: inset 0 1px 0 rgba(#FFF, 0.3), 0 2px 2px rgba(#000, 0.15)
+  //button-style($btn-default-background, $black)
+
+  &, &:hover
+    text-decoration: none
+
+  &:active, &:focus
+    outline: none
+
+.btn--primary
+  button-style($button-color-primary , $white, $button-color-primary )
+
+
+.btn--large
+  height: 45px
+  line-height: 36px
+
+.btn--small
+  padding: 0 10px
+  font-size: 11px
+  font-weight: 300

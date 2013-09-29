@@ -1,0 +1,13 @@
+.l-main
+	.l-sidebar 
+		h2 Filter by:
+		ul
+			li 
+				input(type="checkbox") 
+				label Community Resource
+			li 
+				input(type="checkbox") 
+				label Story
+	.l-feed
+		.l-post(rt-post)
+		.l-storyline(rt-feed, stories="stories")

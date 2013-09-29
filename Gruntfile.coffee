@@ -19,7 +19,7 @@ module.exports = (grunt) ->
 
 		watch: 
 			app: 
-				files: ['assets/scripts/*****/*.coffee','assets/scripts/*.coffee' ]
+				files: ['assets/scripts/******/*.coffee','assets/scripts/*.coffee' ]
 				tasks: ['build_app']
 			css_app:
 				files: ['assets/styles/**/**.styl']
@@ -57,11 +57,25 @@ module.exports = (grunt) ->
 					src: 'index.html'
 					dest: 'app'
 				]
+			feed:
+				files: [
+					expand: true
+					src: 'feed.html'
+					dest: 'app'
+				]
+			user:
+				files: [
+					expand: true
+					src: 'user.html'
+					dest: 'app'
+				]
 		jade:
 			compile:
 				files: 
 					'index.html':'views/layout.jade'
 					'user.html' : 'views/user/user.jade'
+					'login.html' : 'views/login/login.jade'
+					'feed.html' : 'views/feed.jade'
 
 		stylus:
 			css_app:
@@ -103,7 +117,7 @@ module.exports = (grunt) ->
 	grunt.registerTask('build_css',['stylus:css_app', 'cssmin:css_app'])
 	grunt.registerTask('build_html',['jade:compile'])
 	grunt.registerTask('build_img',['copy:images'])
-	grunt.registerTask('build_deploy', ['copy:app','copy:index'])
+	grunt.registerTask('build_deploy', ['copy:app','copy:index','copy:user','copy:feed'])
 	grunt.registerTask('build_fonts',['copy:fonts'])
 	grunt.registerTask('build_vendor', ['rig:vendor', 'uglify:vendor'])
 	grunt.registerTask('rebuild', ['clean:public', 'build_app', 'build_css', 'build_vendor', 'build_img', 'build_fonts', 'build_deploy'])

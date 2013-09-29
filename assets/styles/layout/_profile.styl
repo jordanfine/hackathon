@@ -1,0 +1,33 @@
+.l-profile
+	@extends .clearfix
+	@extends .fixed-container
+	margin-top: 50px
+
+.l-profile-pic
+	column(4)
+	text-align: center
+
+	img
+		border: 1px solid $orange
+		padding: 1px
+
+.l-profile-info
+	column(8)
+	height: 260px
+	position: relative
+
+.userinfo
+	position: absolute
+	bottom: 0
+	text-transform: uppercase
+	line-height: 0.3
+	h1
+		font-size: 36px
+	
+	h1,h2,h3
+		font-weight: 300
+
+		&:last-child
+			margin-bottom: 5px
+
+
